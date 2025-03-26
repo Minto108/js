@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function load(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET","ajax.txt");
+            xhr.send();
+            xhr.onload = function(){
+                document.write(xhr.responseText);
+            }
+            xhr.onprogress = function() {
+                alert("We are processing your request");
+            }
+            xhr.onreadystatechange = function() {
+                documnet.write(this.readyState); 
+            }
+        }
+    </script>
+
+    <h1>AJAX Development</h1>
+    <button type="button" onclick="load()">Submit</button>
+</body>
+</html>
